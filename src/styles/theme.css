@@ -1,0 +1,179 @@
+/*
+ * Design system - single source of truth.
+ *
+ * Tailwind CSS v4 is configured in CSS, not in a `tailwind.config.js`.
+ * Every custom property declared inside `@theme` becomes a real Tailwind
+ * utility. For example `--color-brand-green` generates `bg-brand-green`,
+ * `text-brand-green`, `border-brand-green`, and so on.
+ *
+ * Rule for this project: colours, spacing, radii, shadows and type scale are
+ * declared HERE and nowhere else. Components consume them through Tailwind
+ * utility classes. Do not write raw hex values inside components.
+ *
+ * Note the namespaces - they decide which utility gets generated:
+ *   --color-*     ->  bg-*, text-*, border-*
+ *   --spacing-*   ->  p-*, m-*, gap-*
+ *   --container-* ->  max-w-*, w-*
+ *   --text-*      ->  text-* (font size)
+ *   --radius-*    ->  rounded-*
+ *   --shadow-*    ->  shadow-*
+ * A value in the wrong namespace silently produces no utility at all.
+ */
+
+@theme {
+  /* ---------------------------------------------------------------------
+   * Brand palette - taken from the zim.co.zw flag roundel, exactly.
+   * These three values are fixed: do not re-sample or approximate them.
+   * They are ACCENT colours. The interface is carried by the warm neutral
+   * ramp below; green, gold and red mark emphasis, state and identity. The
+   * mark itself and the stripe above the header are where all three meet.
+   * ------------------------------------------------------------------- */
+  --color-brand-green: #075b28;
+  --color-brand-gold: #fac702;
+  --color-brand-red: #db0e13;
+  --color-brand-black: #000000;
+  --color-brand-white: #ffffff;
+
+  /* Pressed/hover shades for solid brand surfaces, and the pale tints that
+   * sit behind icons and badges. All six are derived from the three exact
+   * values above rather than picked by eye. */
+  --color-brand-green-deep: #05441e;
+  --color-brand-green-soft: #e6efe9;
+  --color-brand-gold-deep: #c79d00;
+  --color-brand-gold-soft: #fdf3ce;
+  --color-brand-red-deep: #b00b0f;
+  --color-brand-red-soft: #fbe7e7;
+
+  /* ---------------------------------------------------------------------
+   * Neutral ramp - carries the majority of the interface.
+   * Deliberately WARM (a trace of yellow) rather than a cool grey, so it sits
+   * with the sand tones in the imagery instead of fighting them.
+   * Overrides Tailwind's built-in `neutral`.
+   * ------------------------------------------------------------------- */
+  --color-neutral-50: #fbfaf7;
+  --color-neutral-100: #f5f3ec;
+  --color-neutral-200: #e8e4d8;
+  --color-neutral-300: #d5d0c1;
+  --color-neutral-400: #a9a497;
+  --color-neutral-500: #7c786f;
+  --color-neutral-600: #5c5952;
+  --color-neutral-700: #44413c;
+  --color-neutral-800: #2b2926;
+  --color-neutral-900: #1a1917;
+  --color-neutral-950: #0e0d0c;
+
+  /* ---------------------------------------------------------------------
+   * Sand - the editorial/illustration palette used by the landscape scenes
+   * and photo-substitute cards. Kept separate from the neutral ramp because
+   * it is imagery, not interface.
+   * ------------------------------------------------------------------- */
+  --color-sand-100: #efe9d9;
+  --color-sand-200: #e2dac3;
+  --color-sand-300: #d3c9ab;
+  --color-sand-400: #c0b491;
+  --color-sand-500: #a89c77;
+  --color-sand-600: #8b8062;
+  --color-sand-700: #6d644d;
+
+  /* ---------------------------------------------------------------------
+   * Semantic colours - what a colour MEANS, not what it looks like.
+   * Prefer these in components (`bg-surface`, `text-muted`) so a theme change
+   * happens in one place.
+   * ------------------------------------------------------------------- */
+  --color-background: var(--color-neutral-50);
+  --color-surface: var(--color-brand-white);
+  --color-surface-sunken: var(--color-neutral-100);
+  --color-surface-inverse: var(--color-neutral-900);
+
+  --color-foreground: var(--color-neutral-900);
+  --color-muted: var(--color-neutral-500);
+  --color-foreground-inverse: var(--color-neutral-50);
+  --color-muted-inverse: var(--color-neutral-400);
+
+  --color-border: var(--color-neutral-200);
+  --color-border-strong: var(--color-neutral-300);
+
+  --color-primary: var(--color-brand-green);
+  --color-primary-hover: var(--color-brand-green-deep);
+  --color-primary-soft: var(--color-brand-green-soft);
+  --color-accent: var(--color-brand-gold);
+  --color-accent-strong: var(--color-brand-gold-deep);
+  --color-accent-soft: var(--color-brand-gold-soft);
+  --color-danger: var(--color-brand-red);
+  --color-danger-hover: var(--color-brand-red-deep);
+  --color-danger-soft: var(--color-brand-red-soft);
+
+  /* ---------------------------------------------------------------------
+   * Verification status - the platform's core trust signal, so it earns
+   * dedicated tokens rather than ad-hoc greens and ambers.
+   * ------------------------------------------------------------------- */
+  /* Verified takes the brand green itself. Needs-review takes a darkened
+   * brand gold, because the flag's yellow is far too light to set text in;
+   * both soft backgrounds are tints of those same two colours. */
+  --color-verified: var(--color-brand-green);
+  --color-verified-soft: var(--color-brand-green-soft);
+  --color-review: #7a5d00;
+  --color-review-soft: var(--color-brand-gold-soft);
+  /* Outdated is red, not grey: a record we know has gone stale is a warning,
+   * and a neutral badge read as "no status set". The deep red is used rather
+   * than the flag red because the flag red on this tint only reaches 4.3:1,
+   * short of AA for text this small. */
+  --color-outdated: var(--color-brand-red-deep);
+  --color-outdated-soft: var(--color-brand-red-soft);
+
+  /* ---------------------------------------------------------------------
+   * Typography.
+   * Two families: a serif for page and section titles, and Inter for
+   * everything else - labels, body copy, cards and controls. Display sizes
+   * carry tight tracking; body text stays at default tracking for
+   * readability.
+   * ------------------------------------------------------------------- */
+  --font-sans:
+    'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Source Serif 4', ui-serif, Georgia, 'Times New Roman', serif;
+  /* The wordmark only. The logo is set in a rounded geometric sans, which is
+   * neither of the two families the interface uses, so it gets its own. */
+  --font-wordmark: 'Nunito', ui-rounded, 'Segoe UI', system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SFMono-Regular', 'Cascadia Code', monospace;
+
+  --text-display: 3.25rem;
+  --text-display--line-height: 1.06;
+  --text-display--letter-spacing: -0.032em;
+
+  /* Area pages open a step below the home page hero: still the loudest thing
+   * on the page, but not competing with it. */
+  --text-page-title: 2.5rem;
+  --text-page-title--line-height: 1.1;
+  --text-page-title--letter-spacing: -0.028em;
+
+  --text-section: 1.75rem;
+  --text-section--line-height: 1.2;
+  --text-section--letter-spacing: -0.02em;
+
+  /* Small uppercase labels (kickers, footer column headings). */
+  --text-kicker: 0.6875rem;
+  --text-kicker--line-height: 1.1;
+  --text-kicker--letter-spacing: 0.1em;
+
+  /* ---------------------------------------------------------------------
+   * Border radius.
+   * ------------------------------------------------------------------- */
+  --radius-card: 0.75rem;
+  --radius-control: 0.5rem;
+  --radius-pill: 9999px;
+
+  /* ---------------------------------------------------------------------
+   * Shadows - soft and neutral-tinted rather than pure black. The design
+   * leans on 1px borders, so shadows stay very restrained.
+   * ------------------------------------------------------------------- */
+  --shadow-card: 0 1px 2px 0 rgb(26 25 23 / 0.04);
+  --shadow-raised:
+    0 4px 6px -1px rgb(26 25 23 / 0.07), 0 2px 4px -2px rgb(26 25 23 / 0.05);
+
+  /* ---------------------------------------------------------------------
+   * Layout - Tailwind's 4px spacing scale is kept as-is; these are the
+   * project-level layout values that do not belong on that scale.
+   * ------------------------------------------------------------------- */
+  --spacing-page-gutter: 1.5rem;
+  --container-content: 75rem;
+}

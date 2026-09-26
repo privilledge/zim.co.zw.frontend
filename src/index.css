@@ -1,0 +1,26 @@
+/*
+ * Global stylesheet - the ONLY stylesheet imported by the application.
+ *
+ * Keep this file small. It handles genuinely global concerns only:
+ * Tailwind's import, the design tokens, and a handful of document-level
+ * base styles. All component styling is done with Tailwind utility classes.
+ */
+
+@import 'tailwindcss';
+@import './styles/theme.css';
+
+@layer base {
+  html {
+    /* Smooth in-page anchor navigation, respected app-wide. */
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+
+  /* A single, consistent focus ring for keyboard users across the whole app. */
+  :focus-visible {
+    @apply outline-primary outline-2 outline-offset-2;
+  }
+}
