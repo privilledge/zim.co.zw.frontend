@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 
 import { BrandMarkIcon } from '@/components/icons';
-import { BrandStripe } from '@/components/layout/BrandStripe';
+// import { BrandStripe } from '@/components/layout/BrandStripe';
 import { BrandWordmark } from '@/components/layout/BrandWordmark';
 import { platformNav, primaryNav } from '@/components/layout/navigation';
 import type { NavItem } from '@/components/layout/navigation';
@@ -44,7 +44,7 @@ export function Footer() {
         </div>
       </div>
 
-      <BrandStripe />
+      {/* <BrandStripe /> */}
     </footer>
   );
 }
