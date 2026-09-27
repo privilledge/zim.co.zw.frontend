@@ -15,6 +15,8 @@ export const jobsIntro = {
   title: 'Jobs & Opportunities',
   description:
     'Vacancies, internships, scholarships, fellowships and short courses from government, employers and institutions across Zimbabwe, organised so you never miss a closing date.',
+  /** Background photo for the page's opening band. */
+  photo: 'office-colleagues',
 } as const;
 
 export type OpportunityType =

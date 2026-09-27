@@ -24,6 +24,8 @@ export const governmentIntro = {
   description:
     'Every entry lists the responsible department, the documents you are asked to bring, and where the service is delivered. Each record shows its source and the date it was last checked, so you can judge it for yourself.',
   searchPlaceholder: 'Search services, departments, documents...',
+  /** Background photo for the page's opening band. */
+  photo: 'registry-office-counter',
 } as const;
 
 /**

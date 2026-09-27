@@ -14,6 +14,8 @@ export const directoryIntro = {
   description:
     "Find any organisation operating in Zimbabwe by name or by type \u2014 government departments, companies, universities, hospitals, NGOs and banks. Every entry is checked before it is marked as verified, so you can trust who you're dealing with.",
   searchPlaceholder: 'Search organizations...',
+  /** Background photo for the page's opening band. */
+  photo: 'harare-skyline-sunset',
 } as const;
 
 /* ------------------------------------------------------------------------

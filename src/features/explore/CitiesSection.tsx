@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 
 import { MapPinIcon } from '@/components/icons';
-import { Scene } from '@/components/illustrations/Scene';
+import { Artwork } from '@/components/media/Artwork';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { cities } from '@/features/explore/exploreContent';
 
@@ -22,8 +22,9 @@ export function CitiesSection() {
                 to={city.path}
                 className="group rounded-card relative flex h-64 flex-col justify-end overflow-hidden p-6"
               >
-                <Scene
-                  variant={city.scene}
+                <Artwork
+                  photo={city.photo}
+                  scene={city.scene}
                   className="absolute inset-0 size-full transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="from-sand-700/95 via-sand-700/40 absolute inset-0 bg-gradient-to-t to-transparent" />

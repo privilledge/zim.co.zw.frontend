@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 
 import { MapPinIcon } from '@/components/icons';
-import { Scene } from '@/components/illustrations/Scene';
+import { Artwork } from '@/components/media/Artwork';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { destinations } from '@/features/home/homeContent';
 
@@ -32,8 +32,9 @@ export function DestinationsSection() {
                 to={destination.path}
                 className="group rounded-card relative flex h-64 flex-col justify-end overflow-hidden p-5 lg:h-80"
               >
-                <Scene
-                  variant={destination.scene}
+                <Artwork
+                  photo={destination.photo}
+                  scene={destination.scene}
                   className="absolute inset-0 size-full transition-transform duration-500 group-hover:scale-105"
                 />
                 <div className="from-sand-700/95 via-sand-700/35 absolute inset-0 bg-gradient-to-t to-transparent" />

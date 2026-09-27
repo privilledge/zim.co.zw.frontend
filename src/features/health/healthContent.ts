@@ -22,6 +22,8 @@ export const healthIntro = {
   description:
     'Find hospitals, clinics, pharmacies and other health facilities across Zimbabwe, with locations, services and contact details \u2014 for locating care, not for booking appointments or medical advice.',
   searchPlaceholder: 'Search hospitals, clinics, pharmacies...',
+  /** Background photo for the page's opening band. */
+  photo: 'nurse-with-patient',
 } as const;
 
 export const emergencyNotice = {

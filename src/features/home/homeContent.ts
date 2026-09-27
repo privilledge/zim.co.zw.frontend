@@ -1,4 +1,5 @@
 import type { SceneVariant } from '@/components/illustrations/Scene';
+import type { PhotoKey } from '@/components/media/photoLibrary';
 import type { VerificationStatus } from '@/types/verification';
 
 /**
@@ -27,6 +28,21 @@ export const heroSuggestions: readonly string[] = [
   'Places to visit in Victoria Falls',
 ];
 
+export interface HeroSlide {
+  photo: PhotoKey;
+  /** Place name and province, shown as a caption over the scene. */
+  caption: string;
+}
+
+/** Scenes the hero carousel cycles through, in order. */
+export const heroSlides: readonly HeroSlide[] = [
+  { photo: 'victoria-falls-gorge', caption: 'Victoria Falls · Matabeleland North' },
+  { photo: 'great-zimbabwe-tower', caption: 'Great Zimbabwe · Masvingo' },
+  { photo: 'harare-skyline-sunset', caption: 'Harare · Harare Province' },
+  { photo: 'matobo-balancing-rocks', caption: 'Matobo Hills · Matabeleland South' },
+  { photo: 'hwange-savanna', caption: 'Hwange National Park · Matabeleland North' },
+];
+
 /* ------------------------------------------------------------------------
  * The eight information areas
  * ---------------------------------------------------------------------- */
@@ -46,6 +62,8 @@ export interface Area {
   title: string;
   description: string;
   path: string;
+  /** A photo shown on the card, when one exists for the area. */
+  photo?: PhotoKey;
 }
 
 /** The lead card: the section most people arrive looking for. */
@@ -57,6 +75,7 @@ export const featuredArea = {
   path: '/government',
   tags: ['Passport', 'National ID', 'Birth certificate', 'Tax'],
   actionLabel: 'Browse services',
+  photo: 'registry-office-counter',
 } as const satisfies Area & { tags: readonly string[]; actionLabel: string };
 
 /** The second lead card, given an illustrated background rather than text. */
@@ -67,6 +86,7 @@ export const illustratedArea = {
     'Victoria Falls, Hwange, Matobo, the Eastern Highlands, Kariba and the cities — destinations, attractions and practical details.',
   path: '/explore',
   scene: 'range',
+  photo: 'hwange-elephants',
 } as const satisfies Area & { scene: SceneVariant };
 
 /** The remaining six areas, shown as a uniform grid. */
@@ -76,36 +96,42 @@ export const secondaryAreas: readonly Area[] = [
     title: 'Jobs & Opportunities',
     description: 'Vacancies, internships, scholarships, fellowships and training.',
     path: '/jobs',
+    photo: 'office-team',
   },
   {
     iconKey: 'graduation',
     title: 'Education',
     description: 'Universities, colleges, programmes, exams and scholarships.',
     path: '/education',
+    photo: 'university-students',
   },
   {
     iconKey: 'health',
     title: 'Health',
     description: 'Hospitals, clinics, pharmacies, laboratories and emergency contacts.',
     path: '/health',
+    photo: 'clinic-consultation',
   },
   {
     iconKey: 'wallet',
     title: 'Business & Money',
     description: 'Banks, insurance, registration, tax and trade.',
     path: '/business',
+    photo: 'harare-cbd',
   },
   {
     iconKey: 'directory',
     title: 'Directories',
     description: 'Government departments, companies, NGOs, schools and banks.',
     path: '/directory',
+    photo: 'government-service-counter',
   },
   {
     iconKey: 'flag',
     title: 'About Zimbabwe',
     description: 'Provinces, cities, languages, heritage and country context.',
     path: '/about',
+    photo: 'great-zimbabwe',
   },
 ];
 
@@ -212,6 +238,7 @@ export interface Destination {
   name: string;
   province: string;
   scene: SceneVariant;
+  photo?: PhotoKey;
   path: string;
 }
 
@@ -220,18 +247,21 @@ export const destinations: readonly Destination[] = [
     name: 'Victoria Falls',
     province: 'Matabeleland North',
     scene: 'falls',
+    photo: 'victoria-falls',
     path: '/explore',
   },
   {
     name: 'Hwange National Park',
     province: 'Matabeleland North',
     scene: 'acacia',
+    photo: 'hwange-elephants',
     path: '/explore',
   },
   {
     name: 'Matobo National Park',
     province: 'Matabeleland South',
     scene: 'boulders',
+    photo: 'matobo-balancing-rocks',
     path: '/explore',
   },
 ];

@@ -18,6 +18,8 @@ export const educationIntro = {
   description:
     'Universities, technical colleges, exam boards and the scholarships that fund study in Zimbabwe and abroad — one organised starting point for learners, parents and institutions.',
   searchPlaceholder: 'Search universities, colleges, courses...',
+  /** Background photo for the page's opening band. */
+  photo: 'students-studying',
 } as const;
 
 /**

@@ -1,3 +1,4 @@
+import { PhotoBand } from '@/components/layout/PhotoBand';
 import { MapPinIcon } from '@/components/icons';
 import { FilterChips } from '@/components/ui/FilterChips';
 import { SelectPill } from '@/components/ui/SelectPill';
@@ -20,35 +21,41 @@ export function JobsIntro() {
   }));
 
   return (
-    <section className="max-w-content px-page-gutter mx-auto pt-12 pb-12 lg:pt-16">
-      <p className="text-kicker text-muted font-semibold uppercase">{jobsIntro.kicker}</p>
+    <PhotoBand photo={jobsIntro.photo}>
+      <section className="max-w-content px-page-gutter mx-auto pt-12 pb-12 lg:pt-16">
+        <p className="text-kicker text-muted font-semibold uppercase">
+          {jobsIntro.kicker}
+        </p>
 
-      <h1 className="text-page-title mt-5 font-serif font-bold">{jobsIntro.title}</h1>
+        <h1 className="text-page-title mt-5 font-serif font-bold">{jobsIntro.title}</h1>
 
-      <p className="text-muted mt-5 max-w-2xl leading-relaxed">{jobsIntro.description}</p>
+        <p className="text-muted mt-5 max-w-2xl leading-relaxed">
+          {jobsIntro.description}
+        </p>
 
-      <FilterChips
-        param="type"
-        label="Filter by opportunity type"
-        options={typeOptions}
-        className="mt-8"
-      />
-
-      <div className="mt-3 flex flex-wrap gap-2">
-        <SelectPill
-          param="location"
-          label="Filter by location"
-          options={opportunityLocations}
-          defaultValue="all"
-          Icon={MapPinIcon}
+        <FilterChips
+          param="type"
+          label="Filter by opportunity type"
+          options={typeOptions}
+          className="mt-8"
         />
-        <SelectPill
-          param="sort"
-          label="Sort by deadline"
-          options={sortOptions}
-          defaultValue="soonest"
-        />
-      </div>
-    </section>
+
+        <div className="mt-3 flex flex-wrap gap-2">
+          <SelectPill
+            param="location"
+            label="Filter by location"
+            options={opportunityLocations}
+            defaultValue="all"
+            Icon={MapPinIcon}
+          />
+          <SelectPill
+            param="sort"
+            label="Sort by deadline"
+            options={sortOptions}
+            defaultValue="soonest"
+          />
+        </div>
+      </section>
+    </PhotoBand>
   );
 }

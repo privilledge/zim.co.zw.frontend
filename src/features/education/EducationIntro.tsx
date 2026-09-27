@@ -1,3 +1,4 @@
+import { PhotoBand } from '@/components/layout/PhotoBand';
 import { FilterChips } from '@/components/ui/FilterChips';
 import { SearchForm } from '@/components/ui/SearchForm';
 import {
@@ -21,33 +22,35 @@ export function EducationIntro() {
   }));
 
   return (
-    <section className="max-w-content px-page-gutter mx-auto pt-12 pb-14 lg:pt-16">
-      <p className="text-kicker text-muted font-semibold uppercase">
-        {educationIntro.kicker}
-      </p>
+    <PhotoBand photo={educationIntro.photo}>
+      <section className="max-w-content px-page-gutter mx-auto pt-12 pb-14 lg:pt-16">
+        <p className="text-kicker text-muted font-semibold uppercase">
+          {educationIntro.kicker}
+        </p>
 
-      <h1 className="text-page-title mt-5 font-serif font-bold">
-        {educationIntro.title}
-      </h1>
+        <h1 className="text-page-title mt-5 font-serif font-bold">
+          {educationIntro.title}
+        </h1>
 
-      <p className="text-muted mt-5 max-w-2xl leading-relaxed">
-        {educationIntro.description}
-      </p>
+        <p className="text-muted mt-5 max-w-2xl leading-relaxed">
+          {educationIntro.description}
+        </p>
 
-      <SearchForm
-        id="education-search"
-        label="Search universities, colleges and courses"
-        placeholder={educationIntro.searchPlaceholder}
-        showSubmit={false}
-        className="mt-8 max-w-md"
-      />
+        <SearchForm
+          id="education-search"
+          label="Search universities, colleges and courses"
+          placeholder={educationIntro.searchPlaceholder}
+          showSubmit={false}
+          className="mt-8 max-w-md"
+        />
 
-      <FilterChips
-        param="category"
-        label="Filter by category"
-        options={options}
-        className="mt-6"
-      />
-    </section>
+        <FilterChips
+          param="category"
+          label="Filter by category"
+          options={options}
+          className="mt-6"
+        />
+      </section>
+    </PhotoBand>
   );
 }

@@ -1,4 +1,4 @@
-import { Scene } from '@/components/illustrations/Scene';
+import { Photo } from '@/components/media/Photo';
 import { aboutIntro } from '@/features/about/aboutContent';
 
 /**
@@ -24,7 +24,7 @@ export function AboutIntro() {
         </div>
 
         <div className="rounded-card relative aspect-[3/2] overflow-hidden">
-          <Scene variant="campus" className="size-full" />
+          <Photo photo={aboutIntro.photo} className="size-full" />
           <p className="bg-surface-inverse/80 rounded-control text-kicker absolute bottom-3 left-3 px-2.5 py-1.5 font-semibold text-white uppercase backdrop-blur-sm">
             {aboutIntro.sceneLabel}
           </p>

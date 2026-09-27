@@ -1,3 +1,4 @@
+import { PhotoBand } from '@/components/layout/PhotoBand';
 import { FilterChips } from '@/components/ui/FilterChips';
 import { SearchForm } from '@/components/ui/SearchForm';
 import { healthFilters, healthIntro } from '@/features/health/healthContent';
@@ -17,31 +18,33 @@ export function HealthIntro() {
   }));
 
   return (
-    <section className="max-w-content px-page-gutter mx-auto pt-12 pb-10 lg:pt-16">
-      <p className="text-kicker text-muted font-semibold uppercase">
-        {healthIntro.kicker}
-      </p>
+    <PhotoBand photo={healthIntro.photo}>
+      <section className="max-w-content px-page-gutter mx-auto pt-12 pb-10 lg:pt-16">
+        <p className="text-kicker text-muted font-semibold uppercase">
+          {healthIntro.kicker}
+        </p>
 
-      <h1 className="text-page-title mt-5 font-serif font-bold">{healthIntro.title}</h1>
+        <h1 className="text-page-title mt-5 font-serif font-bold">{healthIntro.title}</h1>
 
-      <p className="text-muted mt-5 max-w-2xl leading-relaxed">
-        {healthIntro.description}
-      </p>
+        <p className="text-muted mt-5 max-w-2xl leading-relaxed">
+          {healthIntro.description}
+        </p>
 
-      <SearchForm
-        id="health-search"
-        label="Search hospitals, clinics and pharmacies"
-        placeholder={healthIntro.searchPlaceholder}
-        showSubmit={false}
-        className="mt-8 max-w-md"
-      />
+        <SearchForm
+          id="health-search"
+          label="Search hospitals, clinics and pharmacies"
+          placeholder={healthIntro.searchPlaceholder}
+          showSubmit={false}
+          className="mt-8 max-w-md"
+        />
 
-      <FilterChips
-        param="category"
-        label="Filter by facility type"
-        options={options}
-        className="mt-6"
-      />
-    </section>
+        <FilterChips
+          param="category"
+          label="Filter by facility type"
+          options={options}
+          className="mt-6"
+        />
+      </section>
+    </PhotoBand>
   );
 }

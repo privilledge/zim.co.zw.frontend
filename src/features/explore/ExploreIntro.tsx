@@ -1,4 +1,4 @@
-import { Scene } from '@/components/illustrations/Scene';
+import { Photo } from '@/components/media/Photo';
 import { FilterChips } from '@/components/ui/FilterChips';
 import { SearchForm } from '@/components/ui/SearchForm';
 import { exploreCategories, exploreIntro } from '@/features/explore/exploreContent';
@@ -18,7 +18,13 @@ export function ExploreIntro() {
   return (
     <section className="max-w-content px-page-gutter mx-auto pt-8 pb-12">
       <div className="rounded-card relative flex min-h-56 flex-col justify-center overflow-hidden p-8 lg:min-h-64 lg:p-10">
-        <Scene variant="range" className="absolute inset-0 size-full" />
+        <Photo
+          photo={exploreIntro.photo}
+          sizes="(min-width: 1280px) 1200px, 100vw"
+          priority
+          decorative
+          className="absolute inset-0 size-full"
+        />
         <div className="from-sand-700/95 via-sand-700/70 absolute inset-0 bg-gradient-to-r to-transparent" />
 
         <div className="relative max-w-xl">

@@ -1,3 +1,4 @@
+import { PhotoBand } from '@/components/layout/PhotoBand';
 import { FilterChips } from '@/components/ui/FilterChips';
 import { businessCategories, businessIntro } from '@/features/business/businessContent';
 import { businessCategoryIcons } from '@/features/business/iconMaps';
@@ -17,23 +18,27 @@ export function BusinessIntro() {
   }));
 
   return (
-    <section className="max-w-content px-page-gutter mx-auto pt-12 pb-10 lg:pt-16">
-      <p className="text-kicker text-muted font-semibold uppercase">
-        {businessIntro.kicker}
-      </p>
+    <PhotoBand photo={businessIntro.photo}>
+      <section className="max-w-content px-page-gutter mx-auto pt-12 pb-10 lg:pt-16">
+        <p className="text-kicker text-muted font-semibold uppercase">
+          {businessIntro.kicker}
+        </p>
 
-      <h1 className="text-page-title mt-5 font-serif font-bold">{businessIntro.title}</h1>
+        <h1 className="text-page-title mt-5 font-serif font-bold">
+          {businessIntro.title}
+        </h1>
 
-      <p className="text-muted mt-5 max-w-2xl leading-relaxed">
-        {businessIntro.description}
-      </p>
+        <p className="text-muted mt-5 max-w-2xl leading-relaxed">
+          {businessIntro.description}
+        </p>
 
-      <FilterChips
-        param="category"
-        label="Filter by sector"
-        options={options}
-        className="mt-8"
-      />
-    </section>
+        <FilterChips
+          param="category"
+          label="Filter by sector"
+          options={options}
+          className="mt-8"
+        />
+      </section>
+    </PhotoBand>
   );
 }

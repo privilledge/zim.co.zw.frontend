@@ -17,6 +17,8 @@ export const businessIntro = {
   title: 'Business & Money',
   description:
     'Banking, insurance, business registration, tax and licensing information for running a business in Zimbabwe, plus the organisations behind each service.',
+  /** Background photo for the page's opening band. */
+  photo: 'small-business-owner',
 } as const;
 
 export type BusinessCategory =

@@ -12,6 +12,7 @@ export const aboutIntro = {
   description:
     'Zimbabwe is a landlocked country in Southern Africa, bordered by Zambia, Mozambique, South Africa and Botswana. Its capital, Harare, sits on the high central plateau, while the country is home to the thundering Victoria Falls and the ancient stone city of Great Zimbabwe. Sixteen official languages reflect a nation built from many peoples and cultures.',
   sceneLabel: 'Zimbabwe',
+  photo: 'harare-skyline-sunset',
 } as const;
 
 /* ------------------------------------------------------------------------
@@ -66,6 +67,7 @@ export const culture = {
     "The country's heritage sites tell an older story still: the stone walls of Great Zimbabwe, the rock art scattered through the Matobo Hills, and the spray of Victoria Falls all draw visitors and researchers from across the world, and remain central to how Zimbabweans understand their own history.",
   ],
   sceneLabel: 'Great Zimbabwe',
+  photo: 'great-zimbabwe',
 } as const;
 
 /* ------------------------------------------------------------------------

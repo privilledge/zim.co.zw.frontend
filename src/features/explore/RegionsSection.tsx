@@ -1,6 +1,6 @@
 import { Link } from 'react-router';
 
-import { Scene } from '@/components/illustrations/Scene';
+import { Artwork } from '@/components/media/Artwork';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import { regions } from '@/features/explore/exploreContent';
 
@@ -26,8 +26,9 @@ export function RegionsSection() {
               className="border-border bg-surface rounded-card hover:border-border-strong hover:shadow-raised group flex h-full flex-col overflow-hidden border transition-all"
             >
               <div className="aspect-[16/9] overflow-hidden">
-                <Scene
-                  variant={region.scene}
+                <Artwork
+                  photo={region.photo}
+                  scene={region.scene}
                   className="size-full transition-transform duration-500 group-hover:scale-105"
                 />
               </div>

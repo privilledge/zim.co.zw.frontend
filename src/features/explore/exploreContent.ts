@@ -1,4 +1,5 @@
 import type { SceneVariant } from '@/components/illustrations/Scene';
+import type { PhotoKey } from '@/components/media/photoLibrary';
 
 /**
  * STATIC CONTENT FOR THE EXPLORE ZIMBABWE PAGE.
@@ -14,6 +15,7 @@ export const exploreIntro = {
   description:
     'From the spray of the Falls to the granite of Matobo — where to go, what is there, and what to know before you travel.',
   searchPlaceholder: 'Search destinations, parks, cities...',
+  photo: 'victoria-falls',
 } as const;
 
 export type ExploreCategory =
@@ -48,6 +50,8 @@ export interface Destination {
   /** Absent on the two small cards in the mosaic, where there is no room. */
   description?: string;
   scene: SceneVariant;
+  /** A real photo of the place, when there is one. The scene is the fallback. */
+  photo?: PhotoKey;
   category: ExploreCategory;
   path: string;
 }
@@ -64,6 +68,7 @@ export const destinations: readonly Destination[] = [
       'A mile-wide curtain of water on the Zambezi, walked from a rainforest path on the Zimbabwean bank.',
     scene: 'falls',
     category: 'destinations',
+    photo: 'victoria-falls',
     path: '/search?q=Victoria+Falls',
   },
   {
@@ -71,6 +76,7 @@ export const destinations: readonly Destination[] = [
     province: 'Matabeleland North',
     scene: 'acacia',
     category: 'national-parks',
+    photo: 'hwange-elephants',
     path: '/search?q=Hwange+National+Park',
   },
   {
@@ -78,6 +84,7 @@ export const destinations: readonly Destination[] = [
     province: 'Masvingo',
     scene: 'monolith',
     category: 'cultural-sites',
+    photo: 'great-zimbabwe',
     path: '/search?q=Great+Zimbabwe',
   },
   {
@@ -87,6 +94,7 @@ export const destinations: readonly Destination[] = [
       'Balancing granite kopjes and some of the densest rock art in southern Africa.',
     scene: 'boulders',
     category: 'national-parks',
+    photo: 'matobo-balancing-rocks',
     path: '/search?q=Matobo+National+Park',
   },
   {
@@ -118,6 +126,8 @@ export interface Region {
   highlights: string;
   placeCount: number;
   scene: SceneVariant;
+  /** A real photo of the place, when there is one. The scene is the fallback. */
+  photo?: PhotoKey;
   path: string;
 }
 
@@ -127,6 +137,7 @@ export const regions: readonly Region[] = [
     highlights: 'Victoria Falls, Hwange, Binga',
     placeCount: 12,
     scene: 'falls',
+    photo: 'victoria-falls',
     path: '/search?q=Matabeleland+North',
   },
   {
@@ -134,6 +145,7 @@ export const regions: readonly Region[] = [
     highlights: 'Great Zimbabwe, Lake Mutirikwi',
     placeCount: 9,
     scene: 'monolith',
+    photo: 'great-zimbabwe',
     path: '/search?q=Masvingo',
   },
   {
@@ -148,6 +160,7 @@ export const regions: readonly Region[] = [
     highlights: 'Harare, Kariba, Chinhoyi',
     placeCount: 16,
     scene: 'city',
+    photo: 'harare-cbd',
     path: '/search?q=Mashonaland',
   },
 ];
@@ -161,6 +174,8 @@ export interface City {
   province: string;
   description: string;
   scene: SceneVariant;
+  /** A real photo of the place, when there is one. The scene is the fallback. */
+  photo?: PhotoKey;
   path: string;
 }
 
@@ -171,6 +186,7 @@ export const cities: readonly City[] = [
     description:
       'The capital: jacaranda avenues, the National Gallery, Mbare’s markets and a CBD you can walk end to end.',
     scene: 'city',
+    photo: 'harare-cbd',
     path: '/search?q=Harare',
   },
   {

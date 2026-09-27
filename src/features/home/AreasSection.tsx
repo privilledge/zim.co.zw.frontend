@@ -1,7 +1,8 @@
 import { Link } from 'react-router';
 
 import { ArrowRightIcon } from '@/components/icons';
-import { Scene } from '@/components/illustrations/Scene';
+import { Artwork } from '@/components/media/Artwork';
+import { Photo } from '@/components/media/Photo';
 import { SectionHeader } from '@/components/ui/SectionHeader';
 import {
   featuredArea,
@@ -14,7 +15,11 @@ import { areaIcons } from '@/features/home/iconMaps';
  * The eight information areas - the main way into the portal.
  *
  * The two leading sections get larger cards because they are the most-visited
- * and the most visual respectively; the other six share a uniform grid.
+ * and the most visual respectively; the other six share a uniform grid. Cards
+ * whose area has a photo show it across the top, softened by a dark wash
+ * so it sits quietly above the text; the title below names what it
+ * shows, so the photo is decorative. The Explore card is the exception: its
+ * photo is the background for white text, so it keeps its own gradient.
  */
 export function AreasSection() {
   const FeaturedIcon = areaIcons[featuredArea.iconKey];
@@ -32,34 +37,45 @@ export function AreasSection() {
           {/* Lead card - text, with the four services people ask for most. */}
           <Link
             to={featuredArea.path}
-            className="group border-border bg-surface rounded-card hover:border-border-strong hover:shadow-raised flex flex-col p-6 transition-all"
+            className="group border-border bg-surface rounded-card hover:border-border-strong hover:shadow-raised flex flex-col overflow-hidden transition-all"
           >
-            <div className="flex items-center gap-3">
-              <span className="bg-primary-soft text-primary rounded-control flex size-10 items-center justify-center">
-                <FeaturedIcon className="size-5" />
-              </span>
-              <h3 className="text-lg font-bold">{featuredArea.title}</h3>
+            <div className="relative aspect-[16/6] overflow-hidden">
+              <Photo
+                photo={featuredArea.photo}
+                decorative
+                className="size-full transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="bg-surface-inverse/35 absolute inset-0" aria-hidden />
             </div>
 
-            <p className="text-muted mt-4 text-sm leading-relaxed">
-              {featuredArea.description}
-            </p>
+            <div className="flex flex-1 flex-col p-6">
+              <div className="flex items-center gap-3">
+                <span className="bg-primary-soft text-primary rounded-control flex size-10 items-center justify-center">
+                  <FeaturedIcon className="size-5" />
+                </span>
+                <h3 className="text-lg font-bold">{featuredArea.title}</h3>
+              </div>
 
-            <ul className="mt-5 flex flex-wrap gap-2">
-              {featuredArea.tags.map((tag) => (
-                <li
-                  key={tag}
-                  className="border-border rounded-pill text-muted border px-2.5 py-1 text-xs"
-                >
-                  {tag}
-                </li>
-              ))}
-            </ul>
+              <p className="text-muted mt-4 text-sm leading-relaxed">
+                {featuredArea.description}
+              </p>
 
-            <span className="text-primary mt-auto flex items-center gap-1.5 pt-6 text-sm font-medium">
-              {featuredArea.actionLabel}
-              <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
-            </span>
+              <ul className="mt-5 flex flex-wrap gap-2">
+                {featuredArea.tags.map((tag) => (
+                  <li
+                    key={tag}
+                    className="border-border rounded-pill text-muted border px-2.5 py-1 text-xs"
+                  >
+                    {tag}
+                  </li>
+                ))}
+              </ul>
+
+              <span className="text-primary mt-auto flex items-center gap-1.5 pt-6 text-sm font-medium">
+                {featuredArea.actionLabel}
+                <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-0.5" />
+              </span>
+            </div>
           </Link>
 
           {/* Lead card - illustrated, with the copy laid over the scene. */}
@@ -67,8 +83,9 @@ export function AreasSection() {
             to={illustratedArea.path}
             className="group rounded-card relative flex min-h-56 flex-col justify-end overflow-hidden p-6"
           >
-            <Scene
-              variant={illustratedArea.scene}
+            <Artwork
+              photo={illustratedArea.photo}
+              scene={illustratedArea.scene}
               className="absolute inset-0 size-full transition-transform duration-500 group-hover:scale-105"
             />
             <div className="from-sand-700/95 via-sand-700/40 absolute inset-0 bg-gradient-to-t to-transparent" />
@@ -95,15 +112,30 @@ export function AreasSection() {
               <Link
                 key={area.path}
                 to={area.path}
-                className="border-border bg-surface rounded-card hover:border-border-strong hover:shadow-raised p-5 transition-all"
+                className="group border-border bg-surface rounded-card hover:border-border-strong hover:shadow-raised overflow-hidden transition-all"
               >
-                <span className="bg-surface-sunken text-foreground rounded-control flex size-9 items-center justify-center">
-                  <Icon className="size-[1.125rem]" />
-                </span>
-                <h3 className="mt-4 font-semibold">{area.title}</h3>
-                <p className="text-muted mt-1.5 text-sm leading-relaxed">
-                  {area.description}
-                </p>
+                {area.photo && (
+                  <div className="relative aspect-[16/9] overflow-hidden">
+                    <Photo
+                      photo={area.photo}
+                      decorative
+                      className="size-full transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="bg-surface-inverse/35 absolute inset-0" aria-hidden />
+                  </div>
+                )}
+
+                <div className="p-5">
+                  <div className="flex items-center gap-3">
+                    <span className="bg-surface-sunken text-foreground rounded-control flex size-9 shrink-0 items-center justify-center">
+                      <Icon className="size-[1.125rem]" />
+                    </span>
+                    <h3 className="font-semibold">{area.title}</h3>
+                  </div>
+                  <p className="text-muted mt-3 text-sm leading-relaxed">
+                    {area.description}
+                  </p>
+                </div>
               </Link>
             );
           })}

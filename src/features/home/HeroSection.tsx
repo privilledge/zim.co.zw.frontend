@@ -1,60 +1,58 @@
 import { Link } from 'react-router';
 
-import { Scene } from '@/components/illustrations/Scene';
 import { SearchForm } from '@/components/ui/SearchForm';
+import { HeroBackdrop } from '@/features/home/HeroBackdrop';
 import { heroSuggestions } from '@/features/home/homeContent';
+import { resultGroups } from '@/features/search/searchContent';
 
 /**
- * The opening statement: what the portal is, and a search box to start from.
+ * The opening statement: what the portal is, and a search box to start from,
+ * centred over a sliding backdrop of Zimbabwean scenes.
  *
  * The box itself is `SearchForm`, shared with the area pages, so every entry
  * point into search behaves identically.
  */
 export function HeroSection() {
   return (
-    <section className="max-w-content px-page-gutter mx-auto pt-14 pb-16 lg:pt-20 lg:pb-24">
-      <div className="grid items-center gap-10 lg:grid-cols-[1.05fr_1fr] lg:gap-14">
-        <div>
-          <p className="text-kicker text-muted font-semibold uppercase">
-            Zimbabwe · Information &amp; Services
-          </p>
+    <section className="relative isolate">
+      <HeroBackdrop />
 
-          <h1 className="text-display mt-5 font-serif font-bold">
-            One place to discover Zimbabwe
-          </h1>
+      <div className="max-w-content px-page-gutter relative mx-auto pt-20 pb-28 text-center lg:pt-28 lg:pb-36">
+        <p className="text-kicker text-accent font-semibold uppercase">
+          Zimbabwe · Information &amp; Services
+        </p>
 
-          <p className="text-muted mt-5 max-w-lg leading-relaxed">
-            Government services, jobs, universities, hospitals, businesses and places to
-            visit - organised, sourced and dated, so you know what you are looking at.
-          </p>
+        <h1 className="text-display lg:text-hero text-foreground-inverse mx-auto mt-5 max-w-4xl font-serif font-bold">
+          One place to discover
+          <span className="text-primary-on-dark block italic">Zimbabwe</span>
+        </h1>
 
-          <SearchForm
-            id="hero-search"
-            label="Search Zimbabwe"
-            placeholder="Search Zimbabwe..."
-            className="mt-8 max-w-md"
-          />
+        <p className="text-foreground-inverse/85 mx-auto mt-6 max-w-xl leading-relaxed">
+          Government services, jobs, universities, hospitals, businesses and places to
+          visit: organised, sourced and dated, so you know what you are looking at.
+        </p>
 
-          <ul className="mt-5 flex flex-wrap gap-2">
-            {heroSuggestions.map((suggestion) => (
-              <li key={suggestion}>
-                <Link
-                  to={`/search?q=${encodeURIComponent(suggestion)}`}
-                  className="border-border rounded-pill text-muted hover:border-border-strong hover:text-foreground inline-block border px-3 py-1.5 text-xs transition-colors"
-                >
-                  {suggestion}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </div>
+        <SearchForm
+          id="hero-search"
+          label="Search Zimbabwe"
+          placeholder="Search Zimbabwe..."
+          scopes={resultGroups}
+          size="large"
+          className="mx-auto mt-8 max-w-2xl text-left"
+        />
 
-        <div className="rounded-card relative aspect-[4/3] overflow-hidden lg:aspect-[7/5]">
-          <Scene variant="monolith" className="size-full" />
-          <p className="bg-surface/85 rounded-control absolute bottom-3.5 left-3.5 px-2.5 py-1.5 text-[0.6875rem] font-semibold backdrop-blur-sm">
-            Great Zimbabwe · Masvingo
-          </p>
-        </div>
+        <ul className="mt-5 flex flex-wrap justify-center gap-2">
+          {heroSuggestions.map((suggestion) => (
+            <li key={suggestion}>
+              <Link
+                to={`/search?q=${encodeURIComponent(suggestion)}`}
+                className="rounded-pill text-foreground-inverse/85 hover:text-foreground-inverse inline-block border border-white/25 bg-white/10 px-3 py-1.5 text-xs backdrop-blur-sm transition-colors hover:border-white/50"
+              >
+                {suggestion}
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </section>
   );

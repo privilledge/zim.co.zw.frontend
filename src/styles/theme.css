@@ -43,6 +43,9 @@
   --color-brand-gold-soft: #fdf3ce;
   --color-brand-red-deep: #b00b0f;
   --color-brand-red-soft: #fbe7e7;
+  /* A light tint of the brand green's hue for text on dark photographic
+   * backgrounds, where the brand green itself is too dark to read. */
+  --color-brand-green-bright: #8fd6a7;
 
   /* ---------------------------------------------------------------------
    * Neutral ramp - carries the majority of the interface.
@@ -96,6 +99,7 @@
   --color-primary: var(--color-brand-green);
   --color-primary-hover: var(--color-brand-green-deep);
   --color-primary-soft: var(--color-brand-green-soft);
+  --color-primary-on-dark: var(--color-brand-green-bright);
   --color-accent: var(--color-brand-gold);
   --color-accent-strong: var(--color-brand-gold-deep);
   --color-accent-soft: var(--color-brand-gold-soft);
@@ -139,6 +143,11 @@
   --text-display: 3.25rem;
   --text-display--line-height: 1.06;
   --text-display--letter-spacing: -0.032em;
+
+  /* The home hero on wide screens, set over a photograph. */
+  --text-hero: 4.5rem;
+  --text-hero--line-height: 1.02;
+  --text-hero--letter-spacing: -0.035em;
 
   /* Area pages open a step below the home page hero: still the loudest thing
    * on the page, but not competing with it. */
