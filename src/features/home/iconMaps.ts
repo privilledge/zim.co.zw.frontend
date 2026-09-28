@@ -11,10 +11,16 @@ import {
   MountainIcon,
   PassportIcon,
   ReceiptIcon,
+  UsersIcon,
   WalletIcon,
 } from '@/components/icons';
 import type { IconProps } from '@/components/icons';
-import type { AreaIconKey, ServiceIconKey } from '@/features/home/homeContent';
+import type {
+  AreaIconKey,
+  HeroShortcutIconKey,
+  OpportunityIconKey,
+  ServiceIconKey,
+} from '@/features/home/homeContent';
 
 /**
  * Turns the string keys used in `homeContent` into actual icon components.
@@ -44,4 +50,17 @@ export const serviceIcons: Record<ServiceIconKey, IconComponent> = {
   certificate: CertificateIcon,
   car: CarIcon,
   receipt: ReceiptIcon,
+};
+
+export const opportunityIcons: Record<OpportunityIconKey, IconComponent> = {
+  briefcase: BriefcaseIcon,
+  users: UsersIcon,
+  graduation: GraduationCapIcon,
+};
+
+export const heroShortcutIcons: Record<HeroShortcutIconKey, IconComponent> = {
+  passport: PassportIcon,
+  briefcase: BriefcaseIcon,
+  health: HealthIcon,
+  mountain: MountainIcon,
 };

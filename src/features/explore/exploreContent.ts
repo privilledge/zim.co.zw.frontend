@@ -103,6 +103,7 @@ export const destinations: readonly Destination[] = [
     description:
       'Nyanga, the Vumba and Chimanimani — cool, green and cut by walking trails.',
     scene: 'range',
+    photo: 'eastern-highlands',
     category: 'destinations',
     path: '/search?q=Eastern+Highlands',
   },
@@ -111,6 +112,7 @@ export const destinations: readonly Destination[] = [
     province: 'Mashonaland West',
     description: 'Houseboats, drowned forests and long evenings on an inland sea.',
     scene: 'lake',
+    photo: 'lake-kariba',
     category: 'destinations',
     path: '/search?q=Lake+Kariba',
   },
@@ -153,6 +155,7 @@ export const regions: readonly Region[] = [
     highlights: 'Nyanga, Vumba, Chimanimani',
     placeCount: 14,
     scene: 'range',
+    photo: 'eastern-highlands',
     path: '/search?q=Manicaland',
   },
   {
@@ -195,6 +198,7 @@ export const cities: readonly City[] = [
     description:
       'Wide colonial-era streets, the Natural History Museum and the Railway Museum — and the gateway to Matobo.',
     scene: 'city',
+    photo: 'bulawayo-city',
     path: '/search?q=Bulawayo',
   },
 ];

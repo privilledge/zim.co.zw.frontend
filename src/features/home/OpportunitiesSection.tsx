@@ -1,14 +1,17 @@
 import { Link } from 'react-router';
 
-import { MapPinIcon } from '@/components/icons';
+import { CalendarClockIcon } from '@/components/icons';
 import { SectionHeader } from '@/components/ui/SectionHeader';
-import { opportunities } from '@/features/home/homeContent';
+import { opportunityGroups } from '@/features/home/homeContent';
+import { opportunityIcons } from '@/features/home/iconMaps';
 
 /**
- * Jobs, scholarships and internships with a deadline attached.
+ * Jobs, internships and scholarships, grouped by kind.
  *
- * The closing date is the reason this section exists, so it gets a pill of its
- * own and the most urgent one is highlighted rather than left to be spotted.
+ * Each card leads with how many deadlines fall this week, because the closing
+ * date is the reason this section exists, then lists the nearest two. The
+ * card title and each listing are separate links, so the card itself is not
+ * one: a link cannot contain other links.
  */
 export function OpportunitiesSection() {
   return (
@@ -20,39 +23,50 @@ export function OpportunitiesSection() {
       />
 
       <ul className="mt-8 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        {opportunities.map((opportunity) => (
-          <li key={opportunity.title}>
-            <Link
-              to={opportunity.path}
-              className="border-border bg-surface rounded-card hover:border-border-strong hover:shadow-raised flex h-full flex-col p-5 transition-all"
+        {opportunityGroups.map((group) => {
+          const Icon = opportunityIcons[group.iconKey];
+
+          return (
+            <li
+              key={group.title}
+              className="border-border bg-surface rounded-card shadow-raised flex h-full flex-col border p-6"
             >
-              <p className="text-kicker text-muted font-semibold uppercase">
-                {opportunity.category} · {opportunity.type}
-              </p>
-
-              <h3 className="mt-3 font-semibold">{opportunity.title}</h3>
-              <p className="text-muted mt-1 text-sm">{opportunity.organisation}</p>
-
-              <div className="border-border mt-auto flex items-center justify-between gap-3 border-t pt-4">
-                <span className="text-muted flex items-center gap-1.5 text-xs">
-                  <MapPinIcon className="size-3.5" />
-                  {opportunity.location}
+              <div className="flex items-start justify-between gap-3">
+                <span className="bg-primary-soft text-primary rounded-card flex size-12 shrink-0 items-center justify-center">
+                  <Icon className="size-6" />
                 </span>
 
-                <span
-                  className={[
-                    'rounded-pill px-2.5 py-1 text-[0.6875rem] font-semibold',
-                    opportunity.closingSoon
-                      ? 'bg-review-soft text-review'
-                      : 'bg-surface-sunken text-muted',
-                  ].join(' ')}
-                >
-                  {opportunity.closingLabel}
+                <span className="bg-danger-soft text-danger rounded-pill flex items-center gap-1.5 px-3 py-1 text-xs font-semibold">
+                  <CalendarClockIcon className="size-3.5" />
+                  {group.closingThisWeek} closing this week
                 </span>
               </div>
-            </Link>
-          </li>
-        ))}
+
+              <h3 className="mt-5 text-xl font-bold">
+                <Link to={group.path} className="hover:text-primary transition-colors">
+                  {group.title}
+                </Link>
+              </h3>
+              <p className="text-muted mt-2 mb-8 text-sm leading-relaxed">{group.description}</p>
+
+              <ul className="border-border mt-auto border-t pt-4">
+                {group.listings.map((listing) => (
+                  <li key={listing.title}>
+                    <Link
+                      to={listing.path}
+                      className="group flex items-baseline justify-between gap-3 py-1.5 text-sm"
+                    >
+                      <span className="group-hover:text-primary transition-colors">
+                        {listing.title} · {listing.location}
+                      </span>
+                      <span className="text-muted shrink-0 text-xs">{listing.closingLabel}</span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </li>
+          );
+        })}
       </ul>
     </section>
   );

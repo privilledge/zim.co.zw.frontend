@@ -28,19 +28,69 @@ export const heroSuggestions: readonly string[] = [
   'Places to visit in Victoria Falls',
 ];
 
-export interface HeroSlide {
+export interface HeroScene {
   photo: PhotoKey;
-  /** Place name and province, shown as a caption over the scene. */
-  caption: string;
+  place: string;
+  province: string;
+  path: string;
 }
 
-/** Scenes the hero carousel cycles through, in order. */
-export const heroSlides: readonly HeroSlide[] = [
-  { photo: 'victoria-falls-gorge', caption: 'Victoria Falls · Matabeleland North' },
-  { photo: 'great-zimbabwe-tower', caption: 'Great Zimbabwe · Masvingo' },
-  { photo: 'harare-skyline-sunset', caption: 'Harare · Harare Province' },
-  { photo: 'matobo-balancing-rocks', caption: 'Matobo Hills · Matabeleland South' },
-  { photo: 'hwange-savanna', caption: 'Hwange National Park · Matabeleland North' },
+/** The strip of places under the hero copy, left to right. The first is the lead tile. */
+export const heroScenes: readonly HeroScene[] = [
+  {
+    photo: 'victoria-falls-gorge',
+    place: 'Victoria Falls',
+    province: 'Matabeleland North',
+    path: '/explore',
+  },
+  { photo: 'harare-skyline-sunset', place: 'Harare', province: 'Harare', path: '/explore' },
+  { photo: 'great-zimbabwe-tower', place: 'Great Zimbabwe', province: 'Masvingo', path: '/explore' },
+  { photo: 'hwange-elephants', place: 'Hwange', province: 'Matabeleland North', path: '/explore' },
+];
+
+export type HeroShortcutIconKey = 'passport' | 'briefcase' | 'health' | 'mountain';
+
+/** Tint of the shortcut's icon tile, drawn from the brand and sand tokens. */
+export type HeroShortcutTone = 'green' | 'sand' | 'gold';
+
+export interface HeroShortcut {
+  iconKey: HeroShortcutIconKey;
+  tone: HeroShortcutTone;
+  title: string;
+  description: string;
+  path: string;
+}
+
+/** The four quickest ways in, in the band along the bottom of the hero. */
+export const heroShortcuts: readonly HeroShortcut[] = [
+  {
+    iconKey: 'passport',
+    tone: 'green',
+    title: 'Passports & ID',
+    description: 'Requirements and offices',
+    path: '/government',
+  },
+  {
+    iconKey: 'briefcase',
+    tone: 'sand',
+    title: 'Jobs & scholarships',
+    description: 'With dated deadlines',
+    path: '/jobs',
+  },
+  {
+    iconKey: 'health',
+    tone: 'sand',
+    title: 'Hospitals & clinics',
+    description: 'Facilities and contacts',
+    path: '/health',
+  },
+  {
+    iconKey: 'mountain',
+    tone: 'gold',
+    title: 'Places to visit',
+    description: 'Parks, cities, heritage',
+    path: '/explore',
+  },
 ];
 
 /* ------------------------------------------------------------------------
@@ -110,7 +160,7 @@ export const secondaryAreas: readonly Area[] = [
     title: 'Health',
     description: 'Hospitals, clinics, pharmacies, laboratories and emergency contacts.',
     path: '/health',
-    photo: 'clinic-consultation',
+    photo: 'smiling-female-doctor',
   },
   {
     iconKey: 'wallet',
@@ -185,48 +235,73 @@ export const popularServices: readonly PopularService[] = [
  * Opportunities closing soon
  * ---------------------------------------------------------------------- */
 
-export interface Opportunity {
-  category: string;
-  type: string;
+export type OpportunityIconKey = 'briefcase' | 'users' | 'graduation';
+
+/** One deadline listed inside a group card. */
+export interface OpportunityListing {
   title: string;
-  organisation: string;
   location: string;
   closingLabel: string;
-  /** Highlights the deadline when it is the most urgent on the list. */
-  closingSoon: boolean;
   path: string;
 }
 
-export const opportunities: readonly Opportunity[] = [
+/** A kind of opportunity, with a count of deadlines this week and the nearest few. */
+export interface OpportunityGroup {
+  iconKey: OpportunityIconKey;
+  title: string;
+  description: string;
+  /** How many in this group close within the next seven days. */
+  closingThisWeek: number;
+  path: string;
+  listings: readonly OpportunityListing[];
+}
+
+export const opportunityGroups: readonly OpportunityGroup[] = [
   {
-    category: 'Government',
-    type: 'Graduate trainee',
-    title: 'Graduate Trainee Programme',
-    organisation: 'Zimbabwe Revenue Authority (ZIMRA)',
-    location: 'Harare',
-    closingLabel: 'Closes 30 Sep',
-    closingSoon: true,
-    path: '/jobs',
+    iconKey: 'briefcase',
+    title: 'Jobs & Vacancies',
+    description:
+      'Vacancies, graduate programmes and trainee posts from employers across the country.',
+    closingThisWeek: 14,
+    path: '/jobs?type=job',
+    listings: [
+      { title: 'Graduate Trainee', location: 'Harare', closingLabel: 'Closes 30 Sep', path: '/jobs' },
+      { title: 'Nurse Aide', location: 'Bulawayo', closingLabel: 'Closes 04 Oct', path: '/jobs' },
+    ],
   },
   {
-    category: 'Education',
-    type: 'Scholarship',
-    title: 'Presidential Scholarship Scheme',
-    organisation: 'Ministry of Higher and Tertiary Education',
-    location: 'Nationwide',
-    closingLabel: 'Closes 15 Oct',
-    closingSoon: false,
-    path: '/jobs',
+    iconKey: 'users',
+    title: 'Internships',
+    description:
+      'Work placements and attachments for students and recent graduates.',
+    closingThisWeek: 6,
+    path: '/jobs?type=internship',
+    listings: [
+      {
+        title: 'Software Engineering Intern',
+        location: 'Harare',
+        closingLabel: 'Closes 01 Oct',
+        path: '/jobs',
+      },
+      { title: 'Finance Attachment', location: 'Gweru', closingLabel: 'Closes 03 Oct', path: '/jobs' },
+    ],
   },
   {
-    category: 'Technology',
-    type: 'Internship',
-    title: 'Software Engineering Internship',
-    organisation: 'Econet Wireless Zimbabwe',
-    location: 'Harare',
-    closingLabel: 'Closes 22 Oct',
-    closingSoon: false,
-    path: '/jobs',
+    iconKey: 'graduation',
+    title: 'Scholarships',
+    description:
+      'Funded study at home and abroad, with eligibility and deadlines set out.',
+    closingThisWeek: 4,
+    path: '/jobs?type=scholarship',
+    listings: [
+      {
+        title: 'Undergraduate Bursary',
+        location: 'Nationwide',
+        closingLabel: 'Closes 02 Oct',
+        path: '/jobs',
+      },
+      { title: 'Master’s Scholarship', location: 'Abroad', closingLabel: 'Closes 05 Oct', path: '/jobs' },
+    ],
   },
 ];
 

@@ -1,3 +1,4 @@
+import type { PhotoKey } from '@/components/media/photoLibrary';
 import type { VerificationStatus } from '@/types/verification';
 
 /**
@@ -181,4 +182,5 @@ export const businessOrganisations: readonly BusinessOrganisation[] = [
 export const sectorsBanner = {
   title: 'Agriculture & Manufacturing',
   path: '/directory',
-} as const;
+  photo: 'farm-and-factory',
+} as const satisfies { title: string; path: string; photo: PhotoKey };

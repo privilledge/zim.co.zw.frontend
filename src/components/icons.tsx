@@ -355,6 +355,20 @@ export function CalendarIcon(props: IconProps) {
   );
 }
 
+/** A calendar with a clock over its corner, for deadlines. */
+export function CalendarClockIcon(props: IconProps) {
+  return (
+    <svg {...base(props)}>
+      <path d="M11 20.5H5.5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h13a2 2 0 0 1 2 2v4" />
+      <path d="M3.5 9.8h17" />
+      <path d="M8 3v4" />
+      <path d="M16 3v4" />
+      <circle cx="17" cy="17" r="4.25" />
+      <path d="M17 15.2V17l1.2 1" />
+    </svg>
+  );
+}
+
 export function BedIcon(props: IconProps) {
   return (
     <svg {...base(props)}>

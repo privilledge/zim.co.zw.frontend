@@ -35,6 +35,16 @@ import studentsStudying1600 from '@/assets/photos/students-studying-1600.webp';
 import studentsStudying800 from '@/assets/photos/students-studying-800.webp';
 import officeColleagues1600 from '@/assets/photos/office-colleagues-1600.webp';
 import officeColleagues800 from '@/assets/photos/office-colleagues-800.webp';
+import bulawayoCity1600 from '@/assets/photos/bulawayo-city-1600.webp';
+import bulawayoCity800 from '@/assets/photos/bulawayo-city-800.webp';
+import farmAndFactory1600 from '@/assets/photos/farm-and-factory-1600.webp';
+import farmAndFactory800 from '@/assets/photos/farm-and-factory-800.webp';
+import lakeKariba1600 from '@/assets/photos/lake-kariba-1600.webp';
+import lakeKariba800 from '@/assets/photos/lake-kariba-800.webp';
+import easternHighlands1600 from '@/assets/photos/eastern-highlands-1600.webp';
+import easternHighlands800 from '@/assets/photos/eastern-highlands-800.webp';
+import smilingFemaleDoctor1600 from '@/assets/photos/smiling-female-doctor-1600.webp';
+import smilingFemaleDoctor800 from '@/assets/photos/smiling-female-doctor-800.webp';
 /**
  * The site's photographs, keyed by a plain string.
  *
@@ -66,7 +76,12 @@ export type PhotoKey =
   | 'small-business-owner'
   | 'nurse-with-patient'
   | 'students-studying'
-  | 'office-colleagues';
+  | 'office-colleagues'
+  | 'bulawayo-city'
+  | 'farm-and-factory'
+  | 'lake-kariba'
+  | 'eastern-highlands'
+  | 'smiling-female-doctor';
 
 export interface PhotoSource {
   small: string;
@@ -185,5 +200,35 @@ export const photoLibrary: Record<PhotoKey, PhotoSource> = {
     large: officeColleagues1600,
     largeWidth: 1600,
     alt: 'Two colleagues working at a laptop in an office overlooking the city',
+  },
+  'bulawayo-city': {
+    small: bulawayoCity800,
+    large: bulawayoCity1600,
+    largeWidth: 1600,
+    alt: 'Bulawayo city centre at sunset, with the City Hall clock tower and tree-lined streets',
+  },
+  'farm-and-factory': {
+    small: farmAndFactory800,
+    large: farmAndFactory1600,
+    largeWidth: 1600,
+    alt: 'A farmer checking young maize plants beside workers bottling cooking oil on a factory line',
+  },
+  'lake-kariba': {
+    small: lakeKariba800,
+    large: lakeKariba1600,
+    largeWidth: 1600,
+    alt: 'A boat crossing Lake Kariba at sunset, seen from a rocky shore',
+  },
+  'eastern-highlands': {
+    small: easternHighlands800,
+    large: easternHighlands1600,
+    largeWidth: 1600,
+    alt: 'Mist lying in the green valleys of the Eastern Highlands, with a road winding along the hillside',
+  },
+  'smiling-female-doctor': {
+    small: smilingFemaleDoctor800,
+    large: smilingFemaleDoctor1600,
+    largeWidth: 1600,
+    alt: 'A smiling doctor taking notes while talking with a patient in a clinic',
   },
 };
