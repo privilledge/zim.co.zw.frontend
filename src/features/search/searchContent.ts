@@ -108,7 +108,7 @@ export const searchResults: readonly SearchResult[] = [
   {
     category: 'information',
     group: 'information',
-    title: 'Passport renewal — what changes',
+    title: 'Passport renewal - what changes',
     description:
       'How renewing differs from a first application, and which documents you do not need to submit again.',
     location: 'Nationwide',

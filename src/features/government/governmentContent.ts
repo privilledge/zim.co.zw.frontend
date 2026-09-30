@@ -260,5 +260,5 @@ export const serviceCities: readonly string[] = [
 export const sourcesNote = {
   title: 'Where information comes from',
   description:
-    'Every record carries its source and the date it was last checked. Nothing is presented as official that has not been traced back to the responsible organisation. Fees and processing times change — always confirm with the department before you travel.',
+    'Every record carries its source and the date it was last checked. Nothing is presented as official that has not been traced back to the responsible organisation. Fees and processing times change - always confirm with the department before you travel.',
 } as const;

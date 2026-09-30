@@ -58,7 +58,7 @@ export const opportunities: readonly Opportunity[] = [
     sector: 'Government',
     typeLabel: 'Internship',
     type: 'internship',
-    title: 'Graduate Trainee Programme — ZIMRA',
+    title: 'Graduate Trainee Programme - ZIMRA',
     organisation: 'Zimbabwe Revenue Authority',
     location: 'Harare',
     description:
@@ -72,7 +72,7 @@ export const opportunities: readonly Opportunity[] = [
     sector: 'Private sector',
     typeLabel: 'Internship',
     type: 'internship',
-    title: 'Software Engineering Internship — Econet Wireless',
+    title: 'Software Engineering Internship - Econet Wireless',
     organisation: 'Econet Wireless',
     location: 'Harare',
     description:
@@ -86,7 +86,7 @@ export const opportunities: readonly Opportunity[] = [
     sector: 'Scholarship',
     typeLabel: 'Postgraduate',
     type: 'scholarship',
-    title: 'Commonwealth Scholarship — postgraduate study',
+    title: 'Commonwealth Scholarship - postgraduate study',
     organisation: 'Commonwealth Scholarship Commission',
     location: 'Study in the United Kingdom',
     description:
@@ -100,7 +100,7 @@ export const opportunities: readonly Opportunity[] = [
     sector: 'Government',
     typeLabel: 'Fellowship',
     type: 'fellowship',
-    title: 'Youth Fellowship Programme — Ministry of Youth Affairs',
+    title: 'Youth Fellowship Programme - Ministry of Youth Affairs',
     organisation: 'Ministry of Youth Affairs, Sport, Arts & Recreation',
     location: 'Harare',
     description:
@@ -114,7 +114,7 @@ export const opportunities: readonly Opportunity[] = [
     sector: 'Private sector',
     typeLabel: 'Job',
     type: 'job',
-    title: 'Junior Accountant — CBZ Bank',
+    title: 'Junior Accountant - CBZ Bank',
     organisation: 'CBZ Bank',
     location: 'Harare',
     description:
@@ -128,7 +128,7 @@ export const opportunities: readonly Opportunity[] = [
     sector: 'Education',
     typeLabel: 'Job',
     type: 'job',
-    title: 'Teaching Assistant — University of Zimbabwe',
+    title: 'Teaching Assistant - University of Zimbabwe',
     organisation: 'University of Zimbabwe',
     location: 'Harare',
     description:
@@ -142,7 +142,7 @@ export const opportunities: readonly Opportunity[] = [
     sector: 'Government',
     typeLabel: 'Job',
     type: 'job',
-    title: 'Agricultural Extension Officer — Ministry of Lands',
+    title: 'Agricultural Extension Officer - Ministry of Lands',
     organisation: 'Ministry of Lands, Agriculture, Fisheries, Water & Rural Development',
     location: 'Masvingo',
     description:
@@ -156,7 +156,7 @@ export const opportunities: readonly Opportunity[] = [
     sector: 'Private sector',
     typeLabel: 'Job',
     type: 'job',
-    title: 'Data Analyst — Old Mutual Zimbabwe',
+    title: 'Data Analyst - Old Mutual Zimbabwe',
     organisation: 'Old Mutual Zimbabwe',
     location: 'Harare',
     description:

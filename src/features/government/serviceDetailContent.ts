@@ -59,8 +59,8 @@ const passportApplication: ServiceDetail = {
     'Passport photographs',
   ],
   documents: [
-    'National ID — original and one copy',
-    'Birth certificate — original and one copy',
+    'National ID - original and one copy',
+    'Birth certificate - original and one copy',
     'Proof of payment or receipt',
     'Two recent passport photographs',
   ],
@@ -72,7 +72,7 @@ const passportApplication: ServiceDetail = {
     },
   ],
   feeNote:
-    'Fees are set by the Registrar-General’s Office and reviewed periodically — confirm the current amount at a passport office before applying.',
+    'Fees are set by the Registrar-General’s Office and reviewed periodically - confirm the current amount at a passport office before applying.',
   process: [
     {
       title: 'Gather documents',
@@ -96,7 +96,7 @@ const passportApplication: ServiceDetail = {
     },
   ],
   location: {
-    summary: 'Passport offices — Harare, Bulawayo, Mutare + regional offices',
+    summary: 'Passport offices - Harare, Bulawayo, Mutare + regional offices',
     actionLabel: 'View all locations',
     path: '/directory',
   },

@@ -192,7 +192,7 @@ export const nearbyPlaces: readonly NearbyPlace[] = [
 ];
 
 export const mapDisclaimer =
-  'Map view is illustrative — pin positions are approximate and not drawn to exact scale.';
+  'Map view is illustrative - pin positions are approximate and not drawn to exact scale.';
 
 export const coverageNote =
   'Location filtering is available across services, jobs, health facilities and directories.';

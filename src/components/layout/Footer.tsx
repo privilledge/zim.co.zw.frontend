@@ -28,7 +28,7 @@ export function Footer() {
             </div>
             <p className="text-muted-inverse mt-4 text-sm leading-relaxed">
               {
-                'Your gateway to Zimbabwe — government services, jobs, education, health, business and places to explore, in one organised place.'
+                'Your gateway to Zimbabwe - government services, jobs, education, health, business and places to explore, in one organised place.'
               }
             </p>
           </div>
@@ -39,7 +39,7 @@ export function Footer() {
         </div>
 
         <div className="text-muted-inverse mt-12 flex flex-col gap-2 border-t border-neutral-800 pt-6 text-xs sm:flex-row sm:items-center sm:justify-between">
-          <p>{'© 2026 zim.co.zw — an independent information project.'}</p>
+          <p>{'© 2026 zim.co.zw - an independent information project.'}</p>
           <p>Not affiliated with the Government of Zimbabwe.</p>
         </div>
       </div>

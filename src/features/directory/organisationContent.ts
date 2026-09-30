@@ -61,7 +61,7 @@ const registrarGeneral: OrganisationProfile = {
   type: 'Government Department',
   city: 'Harare',
   description:
-    'The department of the Ministry of Home Affairs responsible for civil registration in Zimbabwe — issuing national identity documents, passports, and birth and death certificates for citizens and residents.',
+    'The department of the Ministry of Home Affairs responsible for civil registration in Zimbabwe - issuing national identity documents, passports, and birth and death certificates for citizens and residents.',
   services: [
     {
       title: 'Passport applications',

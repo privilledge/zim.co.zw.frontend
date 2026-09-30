@@ -43,9 +43,24 @@ export const heroScenes: readonly HeroScene[] = [
     province: 'Matabeleland North',
     path: '/explore',
   },
-  { photo: 'harare-skyline-sunset', place: 'Harare', province: 'Harare', path: '/explore' },
-  { photo: 'great-zimbabwe-tower', place: 'Great Zimbabwe', province: 'Masvingo', path: '/explore' },
-  { photo: 'hwange-elephants', place: 'Hwange', province: 'Matabeleland North', path: '/explore' },
+  {
+    photo: 'harare-skyline-sunset',
+    place: 'Harare',
+    province: 'Harare',
+    path: '/explore',
+  },
+  {
+    photo: 'great-zimbabwe-tower',
+    place: 'Great Zimbabwe',
+    province: 'Masvingo',
+    path: '/explore',
+  },
+  {
+    photo: 'hwange-elephants',
+    place: 'Hwange',
+    province: 'Matabeleland North',
+    path: '/explore',
+  },
 ];
 
 export type HeroShortcutIconKey = 'passport' | 'briefcase' | 'health' | 'mountain';
@@ -121,7 +136,7 @@ export const featuredArea = {
   iconKey: 'landmark',
   title: 'Government & Services',
   description:
-    'Passports, national ID, birth certificates, vehicle registration, tax and utilities — what you need, what it costs and where to go.',
+    'Passports, national ID, birth certificates, vehicle registration, tax and utilities - what you need, what it costs and where to go.',
   path: '/government',
   tags: ['Passport', 'National ID', 'Birth certificate', 'Tax'],
   actionLabel: 'Browse services',
@@ -133,7 +148,7 @@ export const illustratedArea = {
   iconKey: 'mountain',
   title: 'Explore Zimbabwe',
   description:
-    'Victoria Falls, Hwange, Matobo, the Eastern Highlands, Kariba and the cities — destinations, attractions and practical details.',
+    'Victoria Falls, Hwange, Matobo, the Eastern Highlands, Kariba and the cities - destinations, attractions and practical details.',
   path: '/explore',
   scene: 'range',
   photo: 'hwange-elephants',
@@ -265,15 +280,24 @@ export const opportunityGroups: readonly OpportunityGroup[] = [
     closingThisWeek: 14,
     path: '/jobs?type=job',
     listings: [
-      { title: 'Graduate Trainee', location: 'Harare', closingLabel: 'Closes 30 Sep', path: '/jobs' },
-      { title: 'Nurse Aide', location: 'Bulawayo', closingLabel: 'Closes 04 Oct', path: '/jobs' },
+      {
+        title: 'Graduate Trainee',
+        location: 'Harare',
+        closingLabel: 'Closes 30 Sep',
+        path: '/jobs',
+      },
+      {
+        title: 'Nurse Aide',
+        location: 'Bulawayo',
+        closingLabel: 'Closes 04 Oct',
+        path: '/jobs',
+      },
     ],
   },
   {
     iconKey: 'users',
     title: 'Internships',
-    description:
-      'Work placements and attachments for students and recent graduates.',
+    description: 'Work placements and attachments for students and recent graduates.',
     closingThisWeek: 6,
     path: '/jobs?type=internship',
     listings: [
@@ -283,7 +307,12 @@ export const opportunityGroups: readonly OpportunityGroup[] = [
         closingLabel: 'Closes 01 Oct',
         path: '/jobs',
       },
-      { title: 'Finance Attachment', location: 'Gweru', closingLabel: 'Closes 03 Oct', path: '/jobs' },
+      {
+        title: 'Finance Attachment',
+        location: 'Gweru',
+        closingLabel: 'Closes 03 Oct',
+        path: '/jobs',
+      },
     ],
   },
   {
@@ -300,7 +329,12 @@ export const opportunityGroups: readonly OpportunityGroup[] = [
         closingLabel: 'Closes 02 Oct',
         path: '/jobs',
       },
-      { title: 'Master’s Scholarship', location: 'Abroad', closingLabel: 'Closes 05 Oct', path: '/jobs' },
+      {
+        title: 'Master’s Scholarship',
+        location: 'Abroad',
+        closingLabel: 'Closes 05 Oct',
+        path: '/jobs',
+      },
     ],
   },
 ];

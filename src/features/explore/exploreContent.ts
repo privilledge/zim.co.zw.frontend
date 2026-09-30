@@ -13,7 +13,7 @@ export const exploreIntro = {
   kicker: 'Destinations · Parks · Cities',
   title: 'Explore Zimbabwe',
   description:
-    'From the spray of the Falls to the granite of Matobo — where to go, what is there, and what to know before you travel.',
+    'From the spray of the Falls to the granite of Matobo - where to go, what is there, and what to know before you travel.',
   searchPlaceholder: 'Search destinations, parks, cities...',
   photo: 'victoria-falls',
 } as const;
@@ -101,7 +101,7 @@ export const destinations: readonly Destination[] = [
     name: 'Eastern Highlands',
     province: 'Manicaland',
     description:
-      'Nyanga, the Vumba and Chimanimani — cool, green and cut by walking trails.',
+      'Nyanga, the Vumba and Chimanimani - cool, green and cut by walking trails.',
     scene: 'range',
     photo: 'eastern-highlands',
     category: 'destinations',
@@ -196,7 +196,7 @@ export const cities: readonly City[] = [
     name: 'Bulawayo',
     province: 'Bulawayo Province',
     description:
-      'Wide colonial-era streets, the Natural History Museum and the Railway Museum — and the gateway to Matobo.',
+      'Wide colonial-era streets, the Natural History Museum and the Railway Museum - and the gateway to Matobo.',
     scene: 'city',
     photo: 'bulawayo-city',
     path: '/search?q=Bulawayo',
@@ -232,7 +232,7 @@ export const planCards: readonly PlanCard[] = [
     iconKey: 'certificate',
     title: 'Park entry & permits',
     description:
-      'National parks charge a daily conservation fee at the gate, set separately for residents and visitors — currently',
+      'National parks charge a daily conservation fee at the gate, set separately for residents and visitors - currently',
     pendingLabel: 'park entry fee',
     descriptionAfter: 'Fishing and camping permits are issued separately.',
   },
